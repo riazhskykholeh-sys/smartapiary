@@ -6,12 +6,12 @@
     <title>Smart Apiary Standard (SAS) — Відкритий стандарт цифрового бджільництва</title>
     <style>
         :root {
-            --bg-color: #ffffff;           /* Белый фон */
-            --card-bg: #f8fafc;           /* Очень светлый серый для карточек */
-            --accent-color: #d97706;      /* Чуть темнее желтого для контраста на белом */
-            --text-main: #1e293b;         /* Темно-синий/серый текст */
-            --text-muted: #64748b;        /* Серый для вторичного текста */
-            --border-color: #e2e8f0;      /* Светлая рамка */
+            --bg-color: #ffffff;
+            --card-bg: #f8fafc;
+            --accent-color: #d97706;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
         }
         
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -31,8 +31,27 @@
         }
 
         header {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Центрування логотипу */
             text-align: center;
             margin-bottom: 50px;
+        }
+
+        /* Обгортка для вирівнювання тега по лівому краю */
+        .header-inner {
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo-tag-wrapper {
+            width: 100%;
+            max-width: 900px;
+            text-align: left;
+            margin-bottom: 16px;
         }
 
         .logo-img {
@@ -40,12 +59,12 @@
             height: auto;
             margin-bottom: 24px;
             border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Легкая тень */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
 
         .logo-tag {
             display: inline-block;
-            background: rgba(245, 158, 11, 0.1);
+            background: rgba(217, 119, 6, 0.1);
             color: var(--accent-color);
             padding: 6px 16px;
             border-radius: 20px;
@@ -53,8 +72,7 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
-            border: 1px solid rgba(245, 158, 11, 0.2);
-            margin-bottom: 16px;
+            border: 1px solid rgba(217, 119, 6, 0.2);
         }
 
         h1 { font-size: 34px; font-weight: 800; line-height: 1.2; margin-bottom: 16px; }
@@ -91,22 +109,11 @@
             transition: transform 0.2s, border-color 0.2s;
         }
 
-        .card:hover {
-            transform: translateY(-2px);
-            border-color: var(--accent-color);
-        }
+        .card:hover { transform: translateY(-2px); border-color: var(--accent-color); }
 
-        .card-meta {
-            display: flex;
-            gap: 12px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
+        .card-meta { display: flex; gap: 12px; font-size: 12px; font-weight: 600; margin-bottom: 8px; }
         .tag-normative { color: #e11d48; }
         .tag-code { color: var(--text-muted); background: #f1f5f9; padding: 2px 6px; border-radius: 4px; }
-
         .card h4 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
         .card p { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; flex-grow: 1; }
 
@@ -126,18 +133,9 @@
             transition: all 0.2s;
         }
 
-        .btn:hover {
-            background-color: var(--accent-color);
-            color: #fff;
-            border-color: var(--accent-color);
-        }
+        .btn:hover { background-color: var(--accent-color); color: #fff; border-color: var(--accent-color); }
 
-        footer {
-            text-align: center;
-            margin-top: 60px;
-            font-size: 14px;
-            color: var(--text-muted);
-        }
+        footer { text-align: center; margin-top: 60px; font-size: 14px; color: var(--text-muted); }
 
         @media (min-width: 640px) {
             .grid { grid-template-columns: repeat(2, 1fr); }
@@ -150,8 +148,10 @@
 
 <div class="container">
     <header>
+        <div class="logo-tag-wrapper">
+            <span class="logo-tag">SmartApiary Standard (SAS)</span>
+        </div>
         <img src="/assets/logo.png" alt="Smart Apiary Logo" class="logo-img">
-        <span class="logo-tag">SmartApiary Standard (SAS)</span>
         <h1>Відкритий міжнародний стандарт цифрового бджільництва</h1>
         <h2>Єдина семантична модель та протокол для інтеграції апаратних засобів телеметрії, систем автоматизації та інструментів операційного управління розумною пасікою.</h2>
     </header>
@@ -160,10 +160,10 @@
 
     <section>
         <h3>Про ідею стандарту</h3>
-        <p class="section-desc" style="text-align: left;">
+        <p style="color: var(--text-muted); font-size: 16px; margin-bottom: 16px;">
             Сьогодні ринок цифрового бджільництва фрагментований: кожен виробник створює власні закриті пристрої та додатки. Це змушує бджолярів користуватися десятком різних програм без можливості об'єднати дані.
         </p>
-        <p class="section-desc" style="text-align: left;">
+        <p style="color: var(--text-muted); font-size: 16px; margin-bottom: 30px;">
             <strong>SmartApiary Standard (SAS)</strong> розробляється як незалежна від брендів система специфікацій. Стандарт визначає єдину інформаційну модель даних, логічних параметрів та команд управління. Будь-який пристрій чи програма, що підтримує SAS, зможе працювати в загальній екосистемі без розробки індивідуальних інтеграцій.
         </p>
     </section>
@@ -175,7 +175,6 @@
         <p class="section-desc">Документи знаходяться у статусі Draft. Ви можете перейти до будь-якої специфікації в Google Docs, щоб залишити свої коментарі, зауваження та пропозиції.</p>
         
         <div class="grid">
-            <!-- Специфікація 000 -->
             <div class="card">
                 <div>
                     <div class="card-meta">
@@ -188,7 +187,6 @@
                 <a href="https://docs.google.com/document/d/15Sys5UOf9Z5x9msn7LRSczWMInzAQgzhTwc7iFlhB1g/edit?usp=sharing" target="_blank" class="btn">Читати та коментувати</a>
             </div>
 
-            <!-- Специфікація 001 -->
             <div class="card">
                 <div>
                     <div class="card-meta">
@@ -201,7 +199,6 @@
                 <a href="https://docs.google.com/document/d/1Ig87-zuZubfaVhZ1G4_NWWK0BywPIHS3CRGJqJ8iuIo/edit?usp=sharing" target="_blank" class="btn">Читати та коментувати</a>
             </div>
 
-            <!-- Реєстр параметрів 110 -->
             <div class="card">
                 <div>
                     <div class="card-meta">
@@ -214,7 +211,6 @@
                 <a href="https://docs.google.com/document/d/1VdNrzXEFwjn39cvmQ5ZE4kbFc-2BtbB7sAuUsaR3gBA/edit?usp=sharing" target="_blank" class="btn">Читати та коментувати</a>
             </div>
 
-            <!-- Специфікація серіалізації 111 -->
             <div class="card">
                 <div>
                     <div class="card-meta">
@@ -227,7 +223,6 @@
                 <a href="https://docs.google.com/document/d/11v9ri5QSoxPEmZsOkh_g3IbVlIVTPmWjmX59gEA7iZ8/edit?usp=sharing" target="_blank" class="btn">Читати та коментувати</a>
             </div>
 
-            <!-- Інтеграція 501 -->
             <div class="card">
                 <div>
                     <div class="card-meta">
