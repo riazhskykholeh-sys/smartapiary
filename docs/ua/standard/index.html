@@ -30,16 +30,13 @@
             padding: 40px 0 60px 0;
         }
 
-     <header>
-    <div class="logo-container">
-        <!-- Сначала логотип -->
-        <img src="/assets/logo.png" alt="Smart Apiary Logo" class="logo-img">
-        <!-- Затем надпись под ним -->
-        <span class="logo-tag">SmartApiary Standard (SAS)</span>
-    </div>
-    <h1>Відкритий міжнародний стандарт цифрового бджільництва</h1>
-    <h2>Єдина семантична модель та протокол для інтеграції...</h2>
-</header>
+   header {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Центрирует логотип и заголовки */
+            text-align: center;
+            margin-bottom: 50px;
+        }
 
         /* Обгортка, которая жестко привязана к ширине логотипа */
         .logo-tag-wrapper {
@@ -49,17 +46,10 @@
             margin-bottom: 16px;
         }
 
-       .logo-container {
-            width: 280px; 
-            display: flex;
-            flex-direction: column;
-            align-items: center; /* Центрируем элементы внутри контейнера */
-        }
-
         .logo-img {
             max-width: 280px;
             height: auto;
-            margin-bottom: 16px; /* Отступ между логотипом и надписью */
+            margin-bottom: 24px;
             border-radius: 16px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
@@ -75,7 +65,6 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             border: 1px solid rgba(217, 119, 6, 0.2);
-            /* Убрали margin-bottom, добавили если нужно что-то после */
         }
 
         h1 { font-size: 34px; font-weight: 800; line-height: 1.2; margin-bottom: 16px; }
