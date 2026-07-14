@@ -1,15 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html lang="uk">
 <head>
     <meta charset="utf-8">
-    <title>Smart Apiary — Перенаправлення...</title>
-    <!-- Безумовне перенаправлення за 0 секунд -->
-    <meta http-equiv="refresh" content="0; url=https://smartapiary.net/standard.html">
-    <script type="text/javascript">
-        window.location.href = "https://smartapiary.net/standard.html";
-    </script>
+    <title>Smart Apiary — Select Language / Оберіть мову</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .lang-container {
+            display: flex;
+            gap: 20px;
+        }
+        a {
+            padding: 15px 30px;
+            font-size: 18px;
+            text-decoration: none;
+            border: 2px solid #333;
+            border-radius: 8px;
+            color: #333;
+        }
+        a:hover {
+            background-color: #333;
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
-    <p>Якщо перенаправлення не відбулося автоматично, будь ласка, <a href="https://smartapiary.net/standard.html">натисніть сюди</a>.</p>
+
+    <h1>SmartApiary Standard</h1>
+    <p>Please select your preferred language:</p>
+
+    <div class="lang-container">
+        <!-- Ссылки ведут в папки, которые мы создали в структуре -->
+        <a href="docs/en/standard/index.html">English</a>
+        <a href="docs/ua/standard/index.html">Українська</a>
+    </div>
+
 </body>
 </html>
