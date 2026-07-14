@@ -1,256 +1,63 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SmartApiary Standard (SAS) — Відкритий стандарт цифрового бджільництва</title>
+    <meta charset="utf-8">
+    <title>Smart Apiary Standard</title>
     <style>
-        :root {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
-            --accent-color: #f59e0b;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --border-color: #334155;
-        }
-        
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
-            padding: 0 20px;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 0 60px 0;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .logo-img {
-            max-width: 280px;
-            height: auto;
-            margin-bottom: 24px;
-            border-radius: 16px;
-            /* Легке світіння для темної теми */
-            box-shadow: 0 10px 30px rgba(245, 158, 11, 0.05); 
-        }
-
-        .logo-tag {
-            display: inline-block;
-            background: rgba(245, 158, 11, 0.1);
-            color: var(--accent-color);
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border: 1px solid rgba(245, 158, 11, 0.2);
-            margin-bottom: 16px;
-        }
-
-        h1 { font-size: 34px; font-weight: 800; line-height: 1.2; margin-bottom: 16px; }
-        h2 { font-size: 20px; color: var(--text-muted); font-weight: 400; max-width: 720px; margin: 0 auto; }
-        h3 { font-size: 20px; font-weight: 700; margin-bottom: 20px; color: var(--accent-color); }
-
-        .divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--border-color), transparent);
-            margin: 40px 0;
-        }
-
-        .section-desc {
-            font-size: 16px;
-            color: var(--text-muted);
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-        }
-
-        .card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 24px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fff9e6; /* Мягкий, светлый медовый фон */
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            transition: transform 0.2s, border-color 0.2s;
-        }
-
-        .card:hover {
-            transform: translateY(-2px);
-            border-color: rgba(245, 158, 11, 0.4);
-        }
-
-        .card-meta {
-            display: flex;
-            gap: 12px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .tag-normative { color: #f43f5e; }
-        .tag-code { color: var(--text-muted); background: #0f172a; padding: 2px 6px; border-radius: 4px; }
-
-        .card h4 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
-        .card p { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; flex-grow: 1; }
-
-        .btn {
-            display: inline-flex;
             align-items: center;
             justify-content: center;
-            background-color: transparent;
-            color: var(--text-main);
-            border: 1px solid var(--border-color);
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 600;
+            height: 100vh;
+            margin: 0;
+            color: #4a3728; /* Темно-коричневый (цвет воска/дерева) */
+        }
+        .logo {
+            max-width: 200px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+        }
+        h1 {
+            margin-bottom: 40px;
+        }
+        .lang-container {
+            display: flex;
+            gap: 20px;
+        }
+        a {
+            padding: 15px 30px;
+            font-size: 18px;
             text-decoration: none;
-            cursor: pointer;
-            transition: all 0.2s;
+            background-color: #ffc107; /* Яркий янтарный цвет */
+            color: #3e2723; /* Темно-коричневый текст */
+            font-weight: bold;
+            border-radius: 50px; /* Скругленные кнопки */
+            border: 2px solid #ff8f00;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
-
-        .btn:hover {
-            background-color: var(--accent-color);
-            color: #000;
-            border-color: var(--accent-color);
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 60px;
-            font-size: 14px;
-            color: var(--text-muted);
-        }
-
-        @media (min-width: 640px) {
-            .grid { grid-template-columns: repeat(2, 1fr); }
-            h1 { font-size: 42px; }
-            .logo-img { max-width: 340px; }
+        a:hover {
+            background-color: #ff8f00; /* Более темный медовый при наведении */
+            transform: scale(1.05);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.2);
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <header>
-        <!-- Шлях до вашого логотипу у тій самій папці репозиторію -->
-        <img src="logo.jpg" alt="Smart Apiary Logo" class="logo-img">
-        <div></div>
-        <span class="logo-tag">SmartApiary Standard (SAS)</span>
-        <h1>Відкритий міжнародний стандарт цифрового бджільництва</h1>
-        <h2>Єдина семантична модель та протокол для інтеграції апаратних засобів телеметрії, систем автоматизації та інструментів операційного управління розумною пасікою.</h2>
-    </header>
+    <!-- Вставка логотипа -->
+    <img src="logo.jpg" alt="Smart Apiary Logo" class="logo">
 
-    <div class="divider"></div>
+    <h1>Smart Apiary Standard</h1>
+    <p>Оберіть мову / Please select your language:</p>
 
-    <section>
-        <h3>Про ідею стандарту</h3>
-        <p style="color: var(--text-muted); font-size: 16px; margin-bottom: 16px;">
-            Сьогодні ринок цифрового бджільництва фрагментований: кожен виробник створює власні закриті пристрої та додатки. Це змушує бджолярів користуватися десятком різних програм без можливості об'єднати дані.
-        </p>
-        <p style="color: var(--text-muted); font-size: 16px; margin-bottom: 30px;">
-            <strong>SmartApiary Standard (SAS)</strong> розробляється як незалежна від брендів система специфікацій. Стандарт визначає єдину інформаційну модель даних, логічних параметрів та команд управління. Будь-який пристрій чи програма, що підтримує SAS, зможе працювати в загальній екосистемі без розробки індивідуальних інтеграцій.
-        </p>
-    </section>
-
-    <div class="divider"></div>
-
-    <section>
-        <h3>Репозиторій специфікацій (Public Review)</h3>
-        <p class="section-desc">Документи знаходяться у статусі Draft. Ви можете перейти до будь-якої специфікації в Google Docs, щоб залишити свої коментарі, зауваження та пропозиції.</p>
-        
-        <div class="grid">
-            <!-- Специфікація 000 -->
-            <div class="card">
-                <div>
-                    <div class="card-meta">
-                        <span class="tag-normative">Normative</span>
-                        <span class="tag-code">SAS-000</span>
-                    </div>
-                    <h4>Базова специфікація</h4>
-                    <p>Фундаментальні архітектурні принципи, модель багаторівневої еталонної архітектури, правила сумісності та версіонування стандарту.</p>
-                </div>
-                <a href="https://docs.google.com/document/d/15Sys5UOf9Z5x9msn7LRSczWMInzAQgzhTwc7iFlhB1g/edit?usp=sharing" target="_blank" class="btn">Читати та коментувати</a>
-            </div>
-
-            <!-- Специфікація 001 -->
-            <div class="card">
-                <div>
-                    <div class="card-meta">
-                        <span class="tag-normative">Normative</span>
-                        <span class="tag-code">SAS-001</span>
-                    </div>
-                    <h4>Глосарій (Glossary)</h4>
-                    <p>Офіційні визначення термінів, понять та скорочень екосистеми. Нормативна база для IoT-домену та предметної області бджільництва.</p>
-                </div>
-                <a href="https://docs.google.com/document/d/1Ig87-zuZubfaVhZ1G4_NWWK0BywPIHS3CRGJqJ8iuIo/edit?usp=sharing" target="_blank" class="btn">Читати та коментувати</a>
-            </div>
-
-            <!-- Реєстр параметрів 110 -->
-            <div class="card">
-                <div>
-                    <div class="card-meta">
-                        <span class="tag-normative">Normative</span>
-                        <span class="tag-code">SAS-110</span>
-                    </div>
-                    <h4>Реєстр логічних параметрів</h4>
-                    <p>Повний уніфікований глосарій ключів API (вага, CO2, леткі сполуки, мікроклімат, метеодані) із зазначенням типів даних та описів семантики[cite: 1, 3].</p>
-                </div>
-                <a href="https://docs.google.com/document/d/1VdNrzXEFwjn39cvmQ5ZE4kbFc-2BtbB7sAuUsaR3gBA/edit?usp=sharing" target="_blank" class="btn">Читати та коментувати</a>
-            </div>
-
-            <!-- Специфікація серіалізації 111 -->
-            <div class="card">
-                <div>
-                    <div class="card-meta">
-                        <span class="tag-normative">Normative</span>
-                        <span class="tag-code">SAS-111</span>
-                    </div>
-                    <h4>Профіль серіалізації за замовчуванням</h4>
-                    <p>Рекомендовані текстовий (теговий) та компактний бінарний формати передачі телеметрії для розробки сумісного обладнання «з нуля»[cite: 3, 4].</p>
-                </div>
-                <a href="https://docs.google.com/document/d/11v9ri5QSoxPEmZsOkh_g3IbVlIVTPmWjmX59gEA7iZ8/edit?usp=sharing" target="_blank" class="btn">Читати та коментувати</a>
-            </div>
-
-            <!-- Інтеграція 501 -->
-            <div class="card">
-                <div>
-                    <div class="card-meta">
-                        <span style="color: #10b981;">Informative</span>
-                        <span class="tag-code">SAS-501</span>
-                    </div>
-                    <h4>Гайд інтеграції для виробників</h4>
-                    <p>Практичні рекомендації для розробників hardware-платформ, прошивок контролерів та інтеграції Edge-адаптерів під вимоги SAS.</p>
-                </div>
-                <a href="#" class="btn" style="opacity: 0.5; pointer-events: none;">У розробці</a>
-            </div>
-        </div>
-    </section>
-
-    <div class="divider"></div>
-
-    <footer>
-        <p>© 2026 SmartApiary Standard Community. Проєкт розробляється на засадах CC BY 4.0.</p>
-    </footer>
-</div>
+    <div class="lang-container">
+        <a href="docs/en/standard/index.html">English</a>
+        <a href="docs/ua/standard/index.html">Українська</a>
+    </div>
 
 </body>
 </html>
