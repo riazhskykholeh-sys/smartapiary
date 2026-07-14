@@ -2,16 +2,26 @@
 <html lang="uk">
 <head>
     <meta charset="utf-8">
-    <title>Smart Apiary — Select Language / Оберіть мову</title>
+    <title>Smart Apiary Standard</title>
     <style>
         body {
-            font-family: sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fff9e6; /* Мягкий, светлый медовый фон */
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100vh;
             margin: 0;
+            color: #4a3728; /* Темно-коричневый (цвет воска/дерева) */
+        }
+        .logo {
+            max-width: 200px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+        }
+        h1 {
+            margin-bottom: 40px;
         }
         .lang-container {
             display: flex;
@@ -21,25 +31,32 @@
             padding: 15px 30px;
             font-size: 18px;
             text-decoration: none;
-            border: 2px solid #333;
-            border-radius: 8px;
-            color: #333;
+            background-color: #ffc107; /* Яркий янтарный цвет */
+            color: #3e2723; /* Темно-коричневый текст */
+            font-weight: bold;
+            border-radius: 50px; /* Скругленные кнопки */
+            border: 2px solid #ff8f00;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
         a:hover {
-            background-color: #333;
-            color: #fff;
+            background-color: #ff8f00; /* Более темный медовый при наведении */
+            transform: scale(1.05);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.2);
         }
     </style>
 </head>
 <body>
 
-    <h1>Smart Apiary</h1>
-    <p>Please select your preferred language:</p>
+    <!-- Вставка логотипа -->
+    <img src="logo.jpg" alt="Smart Apiary Logo" class="logo">
+
+    <h1>Smart Apiary Standard</h1>
+    <p>Оберіть мову / Please select your language:</p>
 
     <div class="lang-container">
-        <!-- Ссылки ведут в папки, которые мы создали в структуре -->
         <a href="docs/en/standard/index.html">English</a>
-        <a href="docs/uk/standard/index.html">Українська</a>
+        <a href="docs/ua/standard/index.html">Українська</a>
     </div>
 
 </body>
